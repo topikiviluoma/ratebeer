@@ -2,4 +2,4 @@
 
 Tällä sovelluksella tullaan jatkossa arvostelemaan oluita...
 
-Linkki Heroku-sovellukseen: https://polar-wildwood-40606.herokuapp.com/
+Linkki Heroku-sovellukseen: https://polar-wildwood-40606.herokuapp.com/breweries
