@@ -3,10 +3,15 @@ class Beer < ActiveRecord::Base
   has_many :ratings
 
   def average_rating
-    sum = 0
+    sum = 0.0
     ratings.each do |rating|
       sum = sum + rating.score
     end
     return sum/ratings.count
+  end
+  def pluralize_without_count(count, noun, text = nil)
+    if count != 0
+      count == 1 ? "an #{noun}#{text}" : "#{noun.pluralize}#{text}"
+    end
   end
 end
