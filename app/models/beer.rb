@@ -1,6 +1,8 @@
 class Beer < ActiveRecord::Base
+  include RatingAverage
+
   belongs_to :brewery
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
 
   def average_rating
 
@@ -16,5 +18,9 @@ class Beer < ActiveRecord::Base
     if count != 0
       count == 1 ? "an #{noun}#{text}" : "#{noun.pluralize}#{text}"
     end
+  end
+
+  def to_s
+    "#{name} - #{brewery.name}"
   end
 end

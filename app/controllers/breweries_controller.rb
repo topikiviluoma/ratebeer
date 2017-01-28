@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, only: [:destroy]
 
   # GET /breweries
   # GET /breweries.json
@@ -64,6 +65,13 @@ class BreweriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def authenticate
+      admin_accounts = {"admin" => "secret", "teppo" => "testaaja", "matti" => "matkija"}
+        authenticate_or_request_with_http_basic do |username, password|
+          admin_accounts
+        end
+    end
+
     def set_brewery
       @brewery = Brewery.find(params[:id])
     end

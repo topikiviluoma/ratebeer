@@ -2,6 +2,8 @@
 
 <h1>Listing Beers</h1>
 
+<p>Number of Beers in database: <%= @beers.count %></p>
+
 <table>
   <thead>
     <tr>
@@ -22,10 +24,10 @@
         <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    <%= link_to 'List of all breweries', breweries_path %>
+
   </tbody>
 </table>
 
 <br>
-
+<%= link_to 'List of all breweries', breweries_path %>
 <%= link_to 'New Beer', new_beer_path %>
