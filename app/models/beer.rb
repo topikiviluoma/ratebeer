@@ -3,17 +3,16 @@ class Beer < ActiveRecord::Base
 
   belongs_to :brewery
   has_many :ratings, dependent: :destroy
+  has_many :raters, through: :ratings, source: :user
 
-  def average_rating
+  validates :name, length: {minimum: 1}
 
-    #ratings_score.inject(0.0) { |sum, el|sum + el }
-
-    sum = 0.0
-    ratings.each do |rating|
-      sum = sum + rating.score
-    end
-    return sum/ratings.count
+  def average
+    return 0 if ratings.empty?
+    ratings.map{ |r| r.score }.sum / ratings.count.to_f
   end
+
+
   def pluralize_without_count(count, noun, text = nil)
     if count != 0
       count == 1 ? "an #{noun}#{text}" : "#{noun.pluralize}#{text}"

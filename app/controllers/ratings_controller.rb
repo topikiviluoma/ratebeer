@@ -1,9 +1,15 @@
 class RatingsController < ApplicationController
 
   def create
+    @rating = Rating.new params.require(:rating).permit(:score, :beer_id)
 
-    Rating.create params.require(:rating).permit(:score, :beer_id)
-    redirect_to ratings_path
+    if @rating.save
+      current_user.ratings << @rating
+      redirect_to user_path current_user
+    else
+      @beers = Beer.all
+      render :new
+    end
   end
 
   def index
@@ -17,8 +23,8 @@ class RatingsController < ApplicationController
 
   def destroy
     rating = Rating.find(params[:id])
-    rating.delete
-    redirect_to ratings_path
+    rating.delete if current_user == rating.user
+    redirect_to :back
   end
 
 end
