@@ -7,6 +7,17 @@
 <p>has made <%= @user.ratings.count %> ratings</p>
 <p>ratings average score: <%= @user.average_rating %></p>
 
+<% if @user.beer_clubs.any? %>
+
+    <p>member of
+      <% @user.beer_clubs.each do |club| %>
+          <%= link_to club.name, club%>
+      <% end %>
+    </p>
+<% else %>
+    <p>no beerclub memberships</p>
+<% end %>
+
 <p><strong>Ratings: </strong></p>
 <ul>
   <% @user.ratings.each do |rating| %>
@@ -19,7 +30,6 @@
   <% end %>
 </ul>
 <% if @user == current_user %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Change password', edit_user_path(@user) %> |
 <%= link_to 'Delete user', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', users_path %>
 <% end %>
