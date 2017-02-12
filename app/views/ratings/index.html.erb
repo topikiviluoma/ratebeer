@@ -11,4 +11,8 @@
       <li> <%= rating.to_s %> <%= link_to rating.user.username, rating.user %></li>
   <% end %>
 </ul>
+<% if current_user.nil? %>
+    <% else %>
+
 <p><%= link_to 'New Rating', new_rating_path %></p>
+<% end %>
