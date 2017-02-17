@@ -33,6 +33,5 @@ describe "Breweries page" do
 
     expect(page).to have_content "Koff"
     expect(page).to have_content "Established in 1897"
-    save_and_open_page
   end
 end

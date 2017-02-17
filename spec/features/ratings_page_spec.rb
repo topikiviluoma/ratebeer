@@ -8,33 +8,25 @@ describe "Rating" do
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
-    visit signin_path
-    fill_in('username', with:'Pekka')
-    fill_in('password', with:'Foobar1')
-    click_button('Log in')
+    sign_in(username:"Pekka", password:"Foobar1")
   end
 
-  it "when given, is registered to the beer and user who is signed in" do
-    visit new_rating_path
-    select('iso 3', from:'rating[beer_id]')
-    fill_in('rating[score]', with:'15')
-
-    expect{
-      click_button "Create Rating"
-    }.to change{Rating.count}.from(0).to(1)
-
-    expect(user.ratings.count).to eq(1)
-    expect(beer1.ratings.count).to eq(1)
-    expect(beer1.average_rating).to eq(15.0)
-  end
-
-  it "amount of ratings on ratings page is correct" do
-  visit new_rating_path
-  select('iso 3', from:'rating[beer_id]')
-  fill_in('rating[score]', with:'15')
-  click_button "Create Rating"
-  visit ratings_path
-  expect(page).to have_content 'Ratings in total: 1'
-  expect(page).to have_content 'iso 3 - 15'
+  describe "when several exist" do
+    before :each do
+      create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 10, 7, 9)
+      visit ratings_path
+      save_and_open_page
     end
+
+    it "all are shown at ratings page" do
+      expect(page).to have_content "anonymous - 10 #{user.username}"
+      expect(page).to have_content "anonymous - 7 #{user.username}"
+      expect(page).to have_content "anonymous - 9 #{user.username}"
+
+    end
+
+    it "their count is shown ratings page" do
+      expect(page).to have_content "Ratings in total: #{Rating.count}"
+    end
+  end
 end
