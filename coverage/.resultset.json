@@ -247,7 +247,7 @@
         1,
         null,
         1,
-        82,
+        91,
         41,
         null,
         null
@@ -334,6 +334,57 @@
         null,
         1,
         0,
+        null,
+        null
+      ],
+      "/home/topi/wpo_RoR/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        4,
+        7,
+        null,
+        null,
+        1,
+        null,
+        1,
+        3,
+        null,
+        3,
+        2,
+        null,
+        2,
+        null,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null
+      ],
+      "/home/topi/wpo_RoR/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        5,
+        null,
+        null
+      ],
+      "/home/topi/wpo_RoR/ratebeer/app/controllers/places_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+        2,
+        0,
+        null,
+        2,
+        null,
         null,
         null
       ],
@@ -645,6 +696,6 @@
         0
       ]
     },
-    "timestamp": 1487321953
+    "timestamp": 1487341797
   }
 }

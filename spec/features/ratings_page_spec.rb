@@ -15,7 +15,7 @@ describe "Rating" do
     before :each do
       create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 10, 7, 9)
       visit ratings_path
-      save_and_open_page
+
     end
 
     it "all are shown at ratings page" do

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'beerclubs/new', to: 'beer_clubs#new'
   resources :ratings, only: [:index, :new, :create, :destroy]
   resource :session, only: [:new, :create, :destroy]
+  get 'places', to: 'places#index'
+  post 'places', to: 'places#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
