@@ -9,5 +9,3 @@ script:
  - bundle exec rake db:test:prepare
  - bundle exec rspec -fd spec/
 
-env:
- - APIKEY=b89b5805bd606a56d258cc0c92af0fa5
