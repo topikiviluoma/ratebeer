@@ -31,7 +31,7 @@ class MembershipsController < ApplicationController
     respond_to do |format|
 
         if not current_user.beer_clubs.include?  @membership.beer_club and @membership.save
-          format.html { redirect_to @membership.user, notice: "You have joined #{@membership.beer_club.name}" }
+          format.html { redirect_to @membership.beer_club, notice: "#@user , welcome to the club!"  }
           format.json { render :show, status: :created, location: @membership }
         else
           @beer_clubs = BeerClub.all - current_user.beer_clubs
