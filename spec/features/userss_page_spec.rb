@@ -32,10 +32,11 @@ describe "User" do
       click_button('Create User')
     }.to change{User.count}.by(1)
   end
-  describe "when have givent ratings" do
+  describe "when have given ratings" do
     before :each do
+      style = FactoryGirl.create(:style)
       create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 7, 9)
-      create_beers_with_ratings(FactoryGirl.create(:brewery, name: "Schlenkerla"), "bock", user, 10)
+      create_beers_with_ratings(FactoryGirl.create(:brewery, name: "Schlenkerla"), style, user, 10)
       user2 = FactoryGirl.create(:user, username: "Brian")
       create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user2, 50)
       visit user_path(user.id)
@@ -60,7 +61,7 @@ describe "User" do
     end
 
     it "favorite style is shown at user page" do
-      expect(page).to have_content "Favorite style: bock"
+      expect(page).to have_content "Favorite style: anon"
     end
 
     it "favorite brewery is shown at user page" do

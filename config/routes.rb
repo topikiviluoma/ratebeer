@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :styles
   resources :beer_clubs
   resources :beer_clubs
   resources :memberships
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   get 'places', to: 'places#index'
   get 'places/:id', to: 'places#show'
   post 'places', to: 'places#search'
+  get 'styles', to: 'styles#index'
+  get 'styles/:id', to: 'styles#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

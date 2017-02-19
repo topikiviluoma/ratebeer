@@ -28,13 +28,10 @@ describe "Places" do
   end
 
   it "if no locations are found in given city, returns error" do
-
-
+    allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return([])
     visit places_path
-    fill_in('city', with: 'vantaa')
+    fill_in('city', with: 'kumpula')
     click_button "Search"
-    save_and_open_page
-
-    expect(page).to have_content "No locations in vantaa"
+    expect(page).to have_content "No locations in kumpula"
   end
 end
