@@ -8,8 +8,5 @@ class CreateStyles < ActiveRecord::Migration
       t.timestamps null: false
     end
     remove_column :beers, :style
-    add_reference :beers, :style
-    add_foreign_key :beers, :style
-
   end
 end
