@@ -6,6 +6,9 @@ class Brewery < ActiveRecord::Base
   validates :name, length: {minimum: 1}
   validates :year, numericality: {greater_than_or_equal_to: 1042, less_than_or_equal_to: 2017}
 
+  scope :active, -> { where active:true}
+  scope :retired, -> { where active:[nil, false] }
+
   def print_report
     puts name
     puts "established at year #{year}"

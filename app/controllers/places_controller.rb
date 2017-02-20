@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
       session[:last_city] = params[:city]
       render :index
     end
+    @weather = WeatherService.weather_for(params[:city])
   end
   def show
     places_in_cache = Rails.cache.read(session[:last_city])
