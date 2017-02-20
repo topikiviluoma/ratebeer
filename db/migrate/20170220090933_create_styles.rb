@@ -3,7 +3,6 @@ class CreateStyles < ActiveRecord::Migration
     create_table :styles do |t|
       t.string :name
       t.text :description
-      t.integer :beer_id
 
       t.timestamps null: false
     end
