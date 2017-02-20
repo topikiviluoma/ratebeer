@@ -23,8 +23,9 @@
 <% end %>
 
 <% if @places %>
-    <table>
+    <table class="table table-hover ">
       <thead>
+      <td>name</td>
       <% Place.rendered_fields.each do |f| %>
           <td><%=f %></td>
       <% end %>

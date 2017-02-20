@@ -11,7 +11,7 @@
 
     <p>member of
       <% @user.beer_clubs.each do |club| %>
-          <%= link_to club.name, club%>
+        <li><%= link_to club.name, club%></li>
       <% end %>
     </p>
 <% else %>
