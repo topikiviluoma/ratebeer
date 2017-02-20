@@ -7,6 +7,5 @@ class CreateStyles < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    remove_column :beers, :style
   end
 end

@@ -4,6 +4,7 @@
     <list default="true" id="7b95c8b8-293a-4e6e-ae30-642a3754dabc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170219150524_create_styles.rb" afterPath="$PROJECT_DIR$/db/migrate/20170219150524_create_styles.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -70,7 +71,7 @@
             <state relative-caret-position="-540">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1487538399341" expanded="true" signature="2048:2054" ph="do ... end" />
+                <marker date="1487541760539" expanded="true" signature="2048:2054" ph="do ... end" />
               </folding>
             </state>
           </provider>
@@ -80,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/db/migrate/20170219150524_create_styles.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -99,8 +100,8 @@
       <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -189,8 +190,8 @@
         <option value="$PROJECT_DIR$/spec/features/beers_page_spec.rb" />
         <option value="$PROJECT_DIR$/app/views/places/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/places/index.html.erb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170219213118_add_reference_key_to_beers.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170219150524_create_styles.rb" />
       </list>
     </option>
@@ -875,12 +876,12 @@
       <workItem from="1487147799374" duration="25443000" />
       <workItem from="1487502179282" duration="1619000" />
       <workItem from="1487504268435" duration="6762000" />
-      <workItem from="1487514040581" duration="16849000" />
+      <workItem from="1487514040581" duration="19570000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133066000" />
+    <option name="totallyTimeSpent" value="135787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="306" width="1301" height="744" extended-state="6" />
@@ -1295,16 +1296,8 @@
         <state relative-caret-position="-540">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1487538399341" expanded="true" signature="2048:2054" ph="do ... end" />
+            <marker date="1487541760539" expanded="true" signature="2048:2054" ph="do ... end" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1312,6 +1305,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1327,7 +1328,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20170219150524_create_styles.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
           <folding />
         </state>
       </provider>

@@ -12,8 +12,8 @@ s1 = Style.create name:"Lager", description:"asd"
 s2 = Style.create name:"Pale Ale", description:"asdd"
 s3 = Style.create name:"Porter", description:"asdasdas"
 
-b1.beers.create name:"Iso 3", style: s1
-b1.beers.create name:"Karhu", style: s1
-b1.beers.create name:"Tuplahumala", style: s1
-b2.beers.create name:"Huvila Pale Ale", style:s2
-b2.beers.create name:"X Porter", style:s3
+b1.beers.create name:"Iso 3", style: s1.id
+b1.beers.create name:"Karhu", style: s1.id
+b1.beers.create name:"Tuplahumala", style: s1.id
+b2.beers.create name:"Huvila Pale Ale", style:s2.id
+b2.beers.create name:"X Porter", style:s3.id
