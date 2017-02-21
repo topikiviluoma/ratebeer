@@ -1,6 +1,9 @@
-<h1> <%= @place_to_show.name %> </h1>
-<p> <%= @place_to_show.street %> </p>
-<p> <%= "#{@place_to_show.zip} #{@place_to_show.city}" %> </p>
-<iframe width="600" height="450" frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?q=<%=@place_to_show.street %>&key=AIzaSyBmnoxtZMGkDLHeJVc5KWsGcjXacLn7KSo"
-        allowfullscreen></iframe>
+<h2> <%= @place.name %> </h2>
+
+<p> <%= @place.street %></p>
+
+<p> <%= @place.zip %> <%= @place.city %> </p>
+
+<p> <%= @place.country %> </p>
+
+<iframe src="<%= @place.url %>" width="600" height="400"></iframe>
