@@ -4,10 +4,11 @@ class Brewery < ActiveRecord::Base
   has_many :ratings, through: :beers
 
   validates :name, length: {minimum: 1}
-  validates :year, numericality: {greater_than_or_equal_to: 1042, less_than_or_equal_to: 2017}
+  validates :year, numericality: {greater_than_or_equal_to: 1042, less_than_or_equal_to: Proc.new { Time.now.year },
+                                  only_integer: true}
 
-  scope :active, -> { where active:true}
-  scope :retired, -> { where active:[nil, false] }
+  scope :active, -> { where active: true }
+  scope :retired, -> { where active: [nil, false] }
 
   def print_report
     puts name
@@ -15,13 +16,12 @@ class Brewery < ActiveRecord::Base
     puts "number of beers: #{beers.count}"
   end
 
-  def average_rating
+  def self.top(n)
+    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating||0)}
+    return sorted_by_rating_in_desc_order.take(n)
+  end
 
-
-    sum = 0.0
-    ratings.each do |rating|
-      sum = sum + rating.score
-    end
-    return sum/ratings.count
+  def to_s
+    "#{name}"
   end
 end

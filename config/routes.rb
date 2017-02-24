@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :ratings, only: [:index, :new, :create, :destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :places, only:[:index, :show]
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   root 'breweries#index'
   get 'kaikki_bisset', to: 'beers#index'
   get 'ratings', to: 'ratings#index'
