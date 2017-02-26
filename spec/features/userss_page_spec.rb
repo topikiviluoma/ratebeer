@@ -24,10 +24,11 @@ describe "User" do
 
   it "when signed up with good credentials, is added to the system" do
     visit signup_path
-    fill_in('user_username', with:'Brian')
-    fill_in('user_password', with:'Secret55')
-    fill_in('user_password_confirmation', with:'Secret55')
-
+    fill_in('Username', with:'Brian')
+    save_and_open_page
+    fill_in('Password', with:'Secret55')
+    fill_in('Password confirmation', with:'Secret55')
+    save_and_open_page
     expect{
       click_button('Create User')
     }.to change{User.count}.by(1)
