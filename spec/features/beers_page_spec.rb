@@ -1,6 +1,12 @@
 require 'rails_helper'
-
-describe "Adding beers" do
+describe "Beers" do
+  before :each do
+    FactoryGirl.create :user
+    FactoryGirl.create :style
+    FactoryGirl.create :brewery, name: "Schlenkerla"
+    sign_in(username:"Pekka", password:"Foobar1")
+    visit new_beer_path
+  end
   it "adds beer if has valid name" do
     style = FactoryGirl.create(:style)
     brewery = FactoryGirl.create(:brewery)

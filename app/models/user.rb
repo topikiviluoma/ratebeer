@@ -53,4 +53,13 @@ class User < ActiveRecord::Base
     sorted_by_amount_of_ratings = User.all.sort_by{ |u| -(u.ratings.count||0)}
     return sorted_by_amount_of_ratings.take(n)
   end
+
+  def is_admin?
+    self.admin == true
+  end
+
+  def is_banned?
+    self.banned == true
+  end
+
 end

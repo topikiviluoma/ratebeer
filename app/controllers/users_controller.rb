@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /users
   # GET /users.json
@@ -19,6 +20,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def toggle_activity
+    user = User.find(params[:id])
+    user.update_attribute :banned, (not user.banned)
+
+    new_status = user.banned? ? "frozen" : "open"
+
+    redirect_to :back, notice:"user status:  #{new_status}"
   end
 
   # POST /users

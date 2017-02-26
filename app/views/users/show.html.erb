@@ -1,7 +1,9 @@
+<p> Username:
+  <strong><%= @user.username %></strong>
+  <% if @user.banned? %>
+      <span class="label label-info">Account frozen</span>
+  <% end %>
 
-
-<p> Hello:
-  <strong><%= @user.username %> !</strong>
 
 </p>
 <p>has made <%= @user.ratings.count %> ratings</p>
@@ -11,8 +13,8 @@
 
     <p>member of
       <% @user.beer_clubs.each do |club| %>
-        <li><%= link_to club.name, club%></li>
-      <% end %>
+        <li><%= link_to club.name, club %></li>
+    <% end %>
     </p>
 <% else %>
     <p>no beerclub memberships</p>
@@ -31,7 +33,7 @@
           <li>
             <%= r %>
             <% if @user == current_user %>
-                <%= link_to 'delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'delete', r, method: :delete, data: {confirm: 'Are you sure?'} %>
             <% end %>
           </li>
       <% end %>
@@ -39,6 +41,14 @@
 
 <% end %>
 <% if @user == current_user %>
-<%= link_to 'Change password', edit_user_path(@user) %> |
-<%= link_to 'Delete user', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Change password', edit_user_path(@user) %> |
+    <%= link_to 'Delete user', @user, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
+<% if current_user.admin %>
+    <% if @user.banned? %>
+        <%= link_to "reactivate account", toggle_activity_user_path(@user.id), method: :post, class: "btn btn-primary" %>
+    <% else %>
+        <%= link_to "freeze account", toggle_activity_user_path(@user.id), method: :post, class: "btn btn-danger" %>
+    <% end %>
+
 <% end %>
