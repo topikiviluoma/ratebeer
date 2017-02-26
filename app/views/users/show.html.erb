@@ -44,7 +44,8 @@
     <%= link_to 'Change password', edit_user_path(@user) %> |
     <%= link_to 'Delete user', @user, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
-<% if current_user.admin %>
+
+<% if current_user && current_user.admin %>
     <% if @user.banned? %>
         <%= link_to "reactivate account", toggle_activity_user_path(@user.id), method: :post, class: "btn btn-primary" %>
     <% else %>
