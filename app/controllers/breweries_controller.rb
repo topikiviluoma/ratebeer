@@ -8,15 +8,32 @@ class BreweriesController < ApplicationController
   def index
     @active_breweries = Brewery.active
     @retired_breweries = Brewery.retired
+    @breweries = Brewery.all
+
+    order = params[:order] || 'name'
+
+    @active_breweries = case order
+                          when 'name' then
+                            @active_breweries.sort_by { |b| b.name }
+                          when 'year' then
+                            @active_breweries.sort_by { |b| b.year }
+                        end
+    @retired_breweries = case order
+                          when 'name' then
+                            @retired_breweries.sort_by { |b| b.name }
+                          when 'year' then
+                            @retired_breweries.sort_by { |b| b.year }
+                        end
 
   end
+
   def toggle_activity
     brewery = Brewery.find(params[:id])
     brewery.update_attribute :active, (not brewery.active)
 
     new_status = brewery.active? ? "active" : "retired"
 
-    redirect_to :back, notice:"brewery activity status changed to #{new_status}"
+    redirect_to :back, notice: "brewery activity status changed to #{new_status}"
   end
 
   def show
@@ -72,20 +89,20 @@ class BreweriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def authenticate
-      admin_accounts = {"admin" => "secret", "teppo" => "testaaja", "matti" => "matkija"}
-        authenticate_or_request_with_http_basic do |username, password|
-          admin_accounts
-        end
+  # Use callbacks to share common setup or constraints between actions.
+  def authenticate
+    admin_accounts = {"admin" => "secret", "teppo" => "testaaja", "matti" => "matkija"}
+    authenticate_or_request_with_http_basic do |username, password|
+      admin_accounts
     end
+  end
 
-    def set_brewery
-      @brewery = Brewery.find(params[:id])
-    end
+  def set_brewery
+    @brewery = Brewery.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def brewery_params
-      params.require(:brewery).permit(:name, :year, :active)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def brewery_params
+    params.require(:brewery).permit(:name, :year, :active)
+  end
 end
