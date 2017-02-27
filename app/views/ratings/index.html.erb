@@ -19,5 +19,5 @@
 <% if current_user.nil? %>
 <% else %>
 
-    <p><%= link_to 'New Rating', new_rating_path %></p>
+    <p><%= link_to 'New Rating', new_rating_path, class: "btn btn-primary" %></p>
 <% end %>
