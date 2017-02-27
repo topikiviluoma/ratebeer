@@ -3,4 +3,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', beers_path %>
+<p>Can't find your brewery or style? Add a new one:</p>
+<%= link_to 'New Brewery', new_brewery_path, class:"btn btn-primary"  %> <%= link_to 'New Style', new_style_path, class: "btn btn-default" %>
+
