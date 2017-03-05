@@ -24,22 +24,19 @@ describe "User" do
 
   it "when signed up with good credentials, is added to the system" do
     visit signup_path
-    fill_in('Username', with:'Brian')
-    save_and_open_page
-    fill_in('Password', with:'Secret55')
-    fill_in('Password confirmation', with:'Secret55')
-    save_and_open_page
-    expect{
+    fill_in('user_username', with:'Brian')
+    fill_in('user_password', with:'Secret55')
+    fill_in('user_password_confirmation', with:'Secret55')
+      expect{
       click_button('Create User')
     }.to change{User.count}.by(1)
   end
   describe "when have given ratings" do
     before :each do
-      style = FactoryGirl.create(:style)
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 7, 9)
-      create_beers_with_ratings(FactoryGirl.create(:brewery, name: "Schlenkerla"), style, user, 10)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style), user, 7, 9)
+      create_beers_with_ratings(FactoryGirl.create(:brewery, name: "Schlenkerla"), FactoryGirl.create(:style, name:"bock") , user, 10)
       user2 = FactoryGirl.create(:user, username: "Brian")
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user2, 50)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style), user2, 50)
       visit user_path(user.id)
     end
 
@@ -54,8 +51,10 @@ describe "User" do
     end
 
     it "when logged in, can delete own ratings" do
+
       sign_in(username:"Pekka", password:"Foobar1")
       visit user_path(user.id)
+      save_and_open_page
       expect{
         page.all('a')[10].click
       }.to change{Rating.count}.by(-1)

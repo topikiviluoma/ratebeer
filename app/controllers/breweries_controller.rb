@@ -38,6 +38,9 @@ class BreweriesController < ApplicationController
 
   def show
   end
+  def list
+
+  end
 
   # GET /breweries/new
   def new

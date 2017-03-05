@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :ensure_that_admin, only: [:destroy]
   # GET /beers
   # GET /beers.json
@@ -32,6 +32,10 @@ class BeersController < ApplicationController
     @beer = Beer.new
     @breweries = Brewery.all
     @styles = Style.all
+  end
+
+  def list
+
   end
 
   # GET /beers/1/edit

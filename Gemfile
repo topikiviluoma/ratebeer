@@ -72,6 +72,7 @@ group :test do
   gem 'webmock'
 end
 
+gem 'jquery-turbolinks'
 gem 'httparty'
 
 
