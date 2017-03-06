@@ -1,8 +1,9 @@
-<h1>Listing Beers</h1>
+<h1>Beers</h1>
+<% cache "beerlist-#{@order}", skip_digest: true do %>
+    <p>Number of Beers in database: <%= @beers.count %></p>
 
-<p>Number of Beers in database: <%= @beers.count %></p>
-
-<%= render 'list', beers: @beers %>
+    <%= render 'list', beers: @beers %>
+<% end %>
 <br>
-<%= link_to 'List of all breweries', breweries_path, class:"btn btn-default" %>
-<%= link_to 'New Beer', new_beer_path, class:"btn btn-primary" %>
+<%= link_to 'List of all breweries', breweries_path, class: "btn btn-default" %>
+<%= link_to 'New Beer', new_beer_path, class: "btn btn-primary" %>

@@ -23,14 +23,13 @@ BREWERIES.sort_by_name = function () {
 
 BREWERIES.sort_by_founded = function () {
     BREWERIES.list.sort(function (a, b) {
-        return a.year - b.year;
-
+        return a.founded.year - b.founded.year;
     });
 };
 
 BREWERIES.sort_by_beers = function () {
   BREWERIES.list.sort(function (a, b) {
-      return a.amount - b.amount;
+      return a.amount.amount - b.amount.amount;
   })
 };
 
@@ -42,16 +41,21 @@ $(document).ready(function () {
             BREWERIES.show();
             e.preventDefault();
         });
-        $("#founded").click(function (e) {
-            BREWERIES.sort_by_founded();
-            BREWERIES.show();
-            e.preventDefault();
-        });
+
+
         $("#amount").click(function (e) {
             BREWERIES.sort_by_beers();
             BREWERIES.show();
             e.preventDefault();
         });
+
+        $("#founded").click(function (e) {
+            BREWERIES.sort_by_founded();
+            BREWERIES.show();
+            e.preventDefault();
+        });
+
+
         $.getJSON('breweries.json', function (breweries) {
             BREWERIES.list = breweries;
             BREWERIES.sort_by_name();

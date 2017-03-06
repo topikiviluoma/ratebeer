@@ -70,10 +70,15 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver', '2.53.4'
+  gem "chromedriver-helper"
+  gem 'database_cleaner'
 end
 
 gem 'jquery-turbolinks'
 gem 'httparty'
+gem 'rack-mini-profiler'
+gem 'omniauth-github'
 
 
 
