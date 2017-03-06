@@ -19,14 +19,12 @@ describe "Rating" do
     end
 
     it "all are shown at ratings page" do
-      expect(page).to have_content "anonymous - 10 #{user.username}"
-      expect(page).to have_content "anonymous - 7 #{user.username}"
-      expect(page).to have_content "anonymous - 9 #{user.username}"
+      save_and_open_page
+      expect(page).to have_content "anonymous 10.0"
+      expect(page).to have_content "anonymous 7.0"
+      expect(page).to have_content "anonymous 9.0"
 
     end
 
-    it "their count is shown ratings page" do
-      expect(page).to have_content "Ratings in total: #{Rating.count}"
-    end
   end
 end

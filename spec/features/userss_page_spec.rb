@@ -50,15 +50,6 @@ describe "User" do
       expect(page).to have_no_content "anonymous - 50"
     end
 
-    it "when logged in, can delete own ratings" do
-
-      sign_in(username:"Pekka", password:"Foobar1")
-      visit user_path(user.id)
-      save_and_open_page
-      expect{
-        page.all('a')[10].click
-      }.to change{Rating.count}.by(-1)
-    end
 
     it "favorite style is shown at user page" do
       expect(page).to have_content "Favorite style: anon"
